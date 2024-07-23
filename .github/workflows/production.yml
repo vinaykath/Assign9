@@ -58,15 +58,15 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: vinaykath/devops_demo:latest # Uses the Git SHA for tagging
+          tags: vvk99/devops_demo:latest # Uses the Git SHA for tagging
           platforms: linux/amd64,linux/arm64 # Multi-platform support
-          cache-from: type=registry,ref=vinaykath/devops_demo:cache
+          cache-from: type=registry,ref=vvk99/devops_demo:cache
           cache-to: type=inline,mode=max
           
       - name: Scan the Docker image
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'vinaykath/devops_demo:latest'
+          image-ref: 'vvk99/devops_demo:latest'
           format: 'table'
           exit-code: '1' # Fail the job if vulnerabilities are found
           ignore-unfixed: true
